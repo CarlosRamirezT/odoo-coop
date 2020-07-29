@@ -9,7 +9,7 @@ class AccountLoan(models.Model):
     currency_id = fields.Many2one("res.currency", "Currency")
     type = fields.Selection([("personal", "Personal")])
     initial_amount = fields.Float("Initial Amount")
-    due_amount = fields.Float("Due Amount", "_compute_due_amount")
+    due_amount = fields.Float("Due Amount", "_compute_due_amount", store=True)
     rate = fields.Float("Rate")
     payment_terms = fields.Selection([("monthly", "Monthly Payment")])
     next_payment_date = fields.Date("Next Payment Date")

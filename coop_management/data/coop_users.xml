@@ -2,7 +2,7 @@
 <odoo noupdate="1">
 
     <!-- adding system admin to manager security group -->
-    <record id="user_admin" model="res.users">
+    <record id="base.user_admin" model="res.users">
         <field name="groups_id" eval="[(4, ref('coop_management.group_coop_manager'))]"/>
     </record>
 
@@ -16,7 +16,7 @@
         <field name="city">Eugene</field>
         <field name="state_id" model="res.country.state" search="[('code','ilike','OR')]"/>
         <field name="zip">97401</field>
-        <field name="country_id" ref="us"/>
+        <field name="country_id" ref="base.us"/>
         <field name="tz">Europe/Brussels</field>
         <field name="email">lagent@example.com</field>
         <field name="phone">(829)-546-5712</field>
@@ -42,7 +42,7 @@
         <field name="city">Yonkers</field>
         <field name="state_id"  model="res.country.state" search="[('code','ilike','OR')]"/>
         <field name="zip">97401</field>
-        <field name="country_id" ref="us"/>
+        <field name="country_id" ref="base.us"/>
         <field name="tz">Europe/Brussels</field>
         <field name="email">rclient@example.com</field>
         <field name="phone">(809)-456-7412</field>
