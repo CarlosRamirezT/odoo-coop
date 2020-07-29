@@ -15,6 +15,7 @@
         "security/coop_secutiry.xml",
         "security/ir.model.access.csv",
         "data/coop_users.xml",
+        "data/menus.xml",
     ],
     "demo": [],
     "application": True,

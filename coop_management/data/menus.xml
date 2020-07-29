@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <menuitem id="menu_coop_management_root" name="Cooperative Management"/>
+        <menuitem id="menu_clients" name="Clients" parent="coop_management.menu_coop_management_root"/>
+        <menuitem id="menu_accounts" name="Accounts" parent="coop_management.menu_coop_management_root"/>
+        <menuitem id="menu_loans" name="Loans" parent="coop_management.menu_coop_management_root"/>
+
+</odoo>
