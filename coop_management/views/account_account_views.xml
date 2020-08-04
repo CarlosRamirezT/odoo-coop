@@ -10,6 +10,7 @@
             <xpath expr="//field[@name='user_type_id']" position="replace"/>
             <xpath expr="//field[@name='code']" position="after">
                 <field name="type"/>
+                <field name="partner_id"/>
                 <field name="currency_id"/>
                 <field name="balance"/>
             </xpath>
@@ -27,6 +28,7 @@
                         <group>
                             <field name="code"/>
                             <field name="type"/>
+                            <field name="partner_id"/>
                             <field name="currency_id"/>
                             <field name="open_balance"/>
                             <field name="balance"/>

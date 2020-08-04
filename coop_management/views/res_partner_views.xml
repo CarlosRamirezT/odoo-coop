@@ -16,11 +16,27 @@
         </field>
     </record>
 
+    <record id="action_create_account" model="ir.actions.act_window">
+        <field name="name">Create Account</field>
+        <field name="res_model">account.account</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_account_form"/>
+        <field name="target">new</field>
+    </record>
+
     <record id="view_partner_form" model="ir.ui.view">
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="%(action_create_account)d"
+                            string='Create Account'
+                            context="{'default_partner_id': active_id}"
+                            type='action'/>
+                </header>
+            </xpath>
             <xpath expr="//sheet/div[2]/h1[1]" position="after">
                 <h3>
                     <field name="document_number"/>
