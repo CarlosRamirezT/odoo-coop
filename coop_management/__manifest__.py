@@ -21,6 +21,7 @@
         "views/menus.xml",
         "views/res_partner_views.xml",
         "views/account_account_views.xml",
+        "views/account_loan_views.xml",
     ],
     "demo": [],
     "application": True,
