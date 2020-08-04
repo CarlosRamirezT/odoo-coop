@@ -14,6 +14,7 @@ class AccountLoan(models.Model):
     payment_terms = fields.Selection([("monthly", "Monthly Payment")])
     next_payment_date = fields.Date("Next Payment Date")
     payment_ids = fields.One2many("account.payment", "loan_id")
+    code = fields.Char(size=64, required=True, index=True)
 
     @api.depends("due_amount")
     def _compute_due_amount(self):
