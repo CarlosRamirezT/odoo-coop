@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_coop_management_root"
+              name="Cooperative Management"/>
+
+    <act_window id="action_clients"
+                name="Cooperative Clients"
+                res_model="res.partner"
+                view_mode="tree,form"/>
+
+    <menuitem id="menu_clients"
+              name="Clients"
+              parent="menu_coop_management_root"
+              action="action_clients"/>
+
+    <act_window id="action_accounts"
+                name="Clients Accounts"
+                res_model="account.account"
+                view_mode="tree,form"/>
+
+    <menuitem id="menu_accounts"
+              name="Accounts"
+              parent="coop_management.menu_coop_management_root"
+              action="action_accounts"/>
+
+    <act_window id="action_loans"
+                name="Client Loans"
+                res_model="account.loan"
+                view_mode="tree,form"/>
+
+    <menuitem id="menu_loans"
+              name="Loans"
+              parent="coop_management.menu_coop_management_root"
+              action="action_loans"/>
+
+</odoo>
