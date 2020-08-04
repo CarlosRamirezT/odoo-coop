@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="document_number"
+                       placeholder="Document Number"/>
+            </xpath>
+            <xpath expr="//field[@name='active']" position="attributes">
+                <attribute name="attrs">{'invisible': 0}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div[2]/h1[1]" position="after">
+                <h3>
+                    <field name="document_number"/>
+                </h3>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='accounting']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='accounting_disabled']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name='coop_client_accounts' string="Client Accounts">
+                    <field name="account_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="code"/>
+                            <field name="type"/>
+                            <field name="currency_id"/>
+                            <field name="balance"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name='coop_client_loans' string="Client Loans">
+                    <field name="loan_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="code"/>
+                            <field name="type"/>
+                            <field name="rate"/>
+                            <field name="payment_terms"/>
+                            <field name="next_payment_date"/>
+                            <field name="currency_id"/>
+                            <field name="initial_amount"/>
+                            <field name="due_amount"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
