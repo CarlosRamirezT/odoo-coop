@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_account_tree" model="ir.ui.view">
+        <field name="name">account.account.tree</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="replace"/>
+            <xpath expr="//field[@name='user_type_id']" position="replace"/>
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="type"/>
+                <field name="currency_id"/>
+                <field name="balance"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_form" model="ir.ui.view">
+        <field name="name">account.account.form</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="replace">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="type"/>
+                            <field name="currency_id"/>
+                            <field name="open_balance"/>
+                            <field name="balance"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="account_moves" string="Account Moves">
+                            <field name="move_line_ids" nolabel="1">
+                                <tree>
+                                    <field name="create_date"/>
+                                    <field name="type"/>
+                                    <field name="debit_amount"/>
+                                    <field name="credit_amount"/>
+                                    <field name="balance"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
