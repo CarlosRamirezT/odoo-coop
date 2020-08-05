@@ -17,4 +17,4 @@ class AccountMoveLine(models.Model):
     account_dest_id = fields.Many2one("account.account", "Destination Account")
     debit_amount = fields.Float("Debit")
     credit_amount = fields.Float("Credit")
-    balance = fields.Float("Balance")
+    balance = fields.Float("Balance", readonly=True)

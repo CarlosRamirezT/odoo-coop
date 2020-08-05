@@ -10,10 +10,11 @@
                     <group>
                         <group>
                             <field name="account_id"/>
+                            <field name="type"/>
                             <field name="account_dest_id"
                                    attrs="{
-                                        'invisible': [('type', 'in', (internal))],
-                                        'required': [('type', 'not in', (internal))],
+                                        'invisible': [('type', '=', 'internal')],
+                                        'required': [('type', '!=', 'internal')],
                                     }"/>
                             <field name="debit_amount"
                                    attrs="{

@@ -20,6 +20,7 @@
         "data/coop_users.xml",
         "views/menus.xml",
         "views/res_partner_views.xml",
+        "views/account_move_views.xml",
         "views/account_account_views.xml",
         "views/account_payment_views.xml",
         "views/account_loan_views.xml",
