@@ -44,7 +44,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="name"
+                                   attrs="{'invisible': [('name', '=', False)]}"/>
                             <field name="partner_id"/>
                             <field name="type"/>
                             <field name="currency_id"/>
@@ -66,6 +67,7 @@
                                     <field name="communication"/>
                                     <field name="payment_method"/>
                                     <field name="amount"/>
+                                    <field name="due_amount"/>
                                 </tree>
                             </field>
                         </page>

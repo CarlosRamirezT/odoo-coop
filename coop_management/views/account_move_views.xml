@@ -12,17 +12,19 @@
                             <field name="account_id"/>
                             <field name="type"/>
                             <field name="account_dest_id"
+                                   options="{'no_create': True}"
                                    attrs="{
                                         'invisible': [('type', '=', 'internal')],
                                         'required': [('type', '!=', 'internal')],
                                     }"/>
                             <field name="debit_amount"
                                    attrs="{
-                                        'readonly': [('credit_amount', '>', 0)]
+                                        'readonly': [('credit_amount', '>', 0)],
                                    }"/>
                             <field name="credit_amount"
                                    attrs="{
-                                        'readonly': [('debit_amount', '>', 0)]
+                                        'readonly': [('debit_amount', '>', 0)],
+                                        'invisible': [('type', '!=', 'internal')],
                                    }"/>
                             <field name="balance"/>
                         </group>

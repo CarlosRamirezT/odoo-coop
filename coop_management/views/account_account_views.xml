@@ -9,6 +9,7 @@
             <xpath expr="//field[@name='name']" position="replace"/>
             <xpath expr="//field[@name='user_type_id']" position="replace"/>
             <xpath expr="//field[@name='code']" position="after">
+                <field name="code"/>
                 <field name="type"/>
                 <field name="partner_id"/>
                 <field name="currency_id"/>
@@ -44,7 +45,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code"/>
+                            <field name="code"
+                                   attrs="{'invisible': [('code', '=', False)]}"/>
                             <field name="type"/>
                             <field name="partner_id"/>
                             <field name="currency_id"/>
@@ -58,6 +60,7 @@
                                 <tree>
                                     <field name="create_date"/>
                                     <field name="type"/>
+                                    <field name="account_dest_id"/>
                                     <field name="debit_amount"/>
                                     <field name="credit_amount"/>
                                     <field name="balance"/>
