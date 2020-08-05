@@ -24,6 +24,14 @@
         <field name="target">new</field>
     </record>
 
+    <record id="action_create_loan" model="ir.actions.act_window">
+        <field name="name">Create Loan</field>
+        <field name="res_model">account.loan</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_loan_form"/>
+        <field name="target">new</field>
+    </record>
+
     <record id="view_partner_form" model="ir.ui.view">
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
@@ -33,6 +41,12 @@
                 <header>
                     <button name="%(action_create_account)d"
                             string='Create Account'
+                            class="oe_highlight"
+                            context="{'default_partner_id': active_id}"
+                            type='action'/>
+                    <button name="%(action_create_loan)d"
+                            string='Create Loan'
+                            class="oe_highlight"
                             context="{'default_partner_id': active_id}"
                             type='action'/>
                 </header>
@@ -54,7 +68,7 @@
             <xpath expr="//page[@name='internal_notes']" position="after">
                 <page name='coop_client_accounts' string="Client Accounts">
                     <field name="account_ids" nolabel="1">
-                        <tree editable="bottom">
+                        <tree>
                             <field name="code"/>
                             <field name="type"/>
                             <field name="currency_id"/>
@@ -64,8 +78,8 @@
                 </page>
                 <page name='coop_client_loans' string="Client Loans">
                     <field name="loan_ids" nolabel="1">
-                        <tree editable="bottom">
-                            <field name="code"/>
+                        <tree>
+                            <field name="name"/>
                             <field name="type"/>
                             <field name="rate"/>
                             <field name="payment_terms"/>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_coop_move_form" model="ir.ui.view">
+        <field name="name">coop.move.form</field>
+        <field name="model">coop.move</field>
+        <field name="arch" type="xml">
+            <form string="Loan Payment">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="account_id"/>
+                            <field name="account_dest_id"
+                                   attrs="{
+                                        'invisible': [('type', 'in', (internal))],
+                                        'required': [('type', 'not in', (internal))],
+                                    }"/>
+                            <field name="debit_amount"
+                                   attrs="{
+                                        'readonly': [('credit_amount', '>', 0)]
+                                   }"/>
+                            <field name="credit_amount"
+                                   attrs="{
+                                        'readonly': [('debit_amount', '>', 0)]
+                                   }"/>
+                            <field name="balance"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_coop_move_tree" model="ir.ui.view">
+        <field name="name">coop.move.tree</field>
+        <field name="model">coop.move</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="account_id"/>
+                <field name="account_dest_id"/>
+                <field name="type"/>
+                <field name="debit_amount"/>
+                <field name="credit_amount"/>
+                <field name="balance"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

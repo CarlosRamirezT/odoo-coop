@@ -12,11 +12,9 @@ class ResPartner(models.Model):
         "account.account",
         "partner_id",
     )
-    loan_ids = fields.Many2many(
+    loan_ids = fields.One2many(
         'account.loan',
-        'partner_has_loan',
         'partner_id',
-        'loan_id',
     )
     property_account_receivable_id = fields.Many2one(
         required=False,

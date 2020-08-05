@@ -7,12 +7,12 @@ class AccountAccount(models.Model):
     name = fields.Char(required=False)
     user_type_id = fields.Many2one(required=False)
     code = fields.Char(size=5)
-    partner_id = fields.Many2one('res.partner', "Client")
+    partner_id = fields.Many2one('res.partner', "Client", required=True, readonly=True)
     type = fields.Selection([("savings", "Savings")])
     balance = fields.Float("Current Balance", compute="_compute_balance", store=True)
     open_balance = fields.Float("Opening Balance")
     move_line_ids = fields.One2many(
-        "account.account.move",
+        "coop.move",
         "account_id",
         string="Account Moves",
     )

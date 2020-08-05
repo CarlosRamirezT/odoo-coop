@@ -6,7 +6,7 @@
         <field name="model">account.loan</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code"/>
+                <field name="name"/>
                 <field name="partner_id"/>
                 <field name="type"/>
                 <field name="currency_id"/>
@@ -17,15 +17,34 @@
         </field>
     </record>
 
+    <record id="action_create_payment" model="ir.actions.act_window">
+        <field name="name">Create Payment</field>
+        <field name="res_model">coop.payment</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_coop_payment_form"/>
+        <field name="target">new</field>
+    </record>
+
     <record id="view_loan_form" model="ir.ui.view">
         <field name="name">account.loan.form</field>
         <field name="model">account.loan</field>
         <field name="arch" type="xml">
             <form string="Account Loan">
+                <header>
+                    <button name="%(action_create_payment)d"
+                            string='Register Payment'
+                            class="oe_highlight"
+                            context="{
+                                'default_loan_id': active_id,
+                                'default_partner_id': partner_id,
+                                'default_payment_method': 'cashier',
+                            }"
+                            type='action'/>
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="code"/>
+                            <field name="name"/>
                             <field name="partner_id"/>
                             <field name="type"/>
                             <field name="currency_id"/>
@@ -43,10 +62,9 @@
                             <field name="payment_ids" nolabel="1">
                                 <tree>
                                     <field name="create_date"/>
+                                    <field name="partner_id"/>
                                     <field name="communication"/>
-                                    <field name="payment_type"/>
-                                    <field name="payment_method_id"/>
-                                    <field name="currency_id"/>
+                                    <field name="payment_method"/>
                                     <field name="amount"/>
                                 </tree>
                             </field>
