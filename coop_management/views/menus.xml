@@ -4,34 +4,61 @@
     <menuitem id="menu_coop_management_root"
               name="Cooperative Management"/>
 
-    <act_window id="action_clients"
-                name="Cooperative Clients"
-                res_model="res.partner"
-                view_mode="tree,form"/>
+        <menuitem id="menu_coop_management_root_client"
+                  parent="menu_coop_management_root"
+                  name="Clients"/>
 
-    <menuitem id="menu_clients"
-              name="Clients"
-              parent="menu_coop_management_root"
-              action="action_clients"/>
+            <act_window id="action_clients"
+                        name="Cooperative Clients"
+                        res_model="res.partner"
+                        view_mode="tree,form"/>
+            <menuitem id="menu_clients"
+                      name="Client Profiles"
+                      parent="menu_coop_management_root_client"
+                      action="action_clients"/>
 
-    <act_window id="action_accounts"
-                name="Clients Accounts"
-                res_model="account.account"
-                view_mode="tree,form"/>
+        <menuitem id="menu_coop_management_root_account"
+                      parent="menu_coop_management_root"
+                      name="Accounts"/>
 
-    <menuitem id="menu_accounts"
-              name="Accounts"
-              parent="coop_management.menu_coop_management_root"
-              action="action_accounts"/>
+            <act_window id="action_accounts"
+                        name="Client Accounts"
+                        res_model="account.account"
+                        view_mode="tree,form"/>
+            <menuitem id="menu_accounts"
+                      name="Account Records"
+                      parent="menu_coop_management_root_account"
+                      action="action_accounts"/>
 
-    <act_window id="action_loans"
-                name="Client Loans"
-                res_model="account.loan"
-                view_mode="tree,form"/>
+            <act_window id="action_moves"
+                        name="Account Transactions"
+                        res_model="coop.move"
+                        view_mode="tree,form"/>
+            <menuitem id="menu_moves"
+                      name="Account Transactions"
+                      parent="menu_coop_management_root_account"
+                      action="action_moves"/>
 
-    <menuitem id="menu_loans"
-              name="Loans"
-              parent="coop_management.menu_coop_management_root"
-              action="action_loans"/>
+        <menuitem id="menu_coop_management_root_loan"
+                  parent="menu_coop_management_root"
+                  name="Loans"/>
+
+            <act_window id="action_loans"
+                        name="Client Loans"
+                        res_model="account.loan"
+                        view_mode="tree,form"/>
+            <menuitem id="menu_loans"
+                      name="Loan Records"
+                      parent="menu_coop_management_root_loan"
+                      action="action_loans"/>
+
+            <act_window id="action_payments"
+                        name="Loan Payments"
+                        res_model="coop.move"
+                        view_mode="tree,form"/>
+            <menuitem id="menu_payments"
+                      name="Loan Payments"
+                      parent="menu_coop_management_root_loan"
+                      action="action_payments"/>
 
 </odoo>
