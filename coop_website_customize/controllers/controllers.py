@@ -1,20 +1,10 @@
-# -*- coding: utf-8 -*-
 from odoo import http
+from odoo.http import request
+from odoo.addons.website.controllers.main import Website
 
-# class CoopWebsiteCustomize(http.Controller):
-#     @http.route('/coop_website_customize/coop_website_customize/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
 
-#     @http.route('/coop_website_customize/coop_website_customize/objects/', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('coop_website_customize.listing', {
-#             'root': '/coop_website_customize/coop_website_customize',
-#             'objects': http.request.env['coop_website_customize.coop_website_customize'].search([]),
-#         })
+class Website(Website):
 
-#     @http.route('/coop_website_customize/coop_website_customize/objects/<model("coop_website_customize.coop_website_customize"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('coop_website_customize.object', {
-#             'object': obj
-#         })
+    @http.route('/', type='http', auth="public", website=True)
+    def index(self, **kw):
+        return request.render('coop_website_customize.coop_layout')
